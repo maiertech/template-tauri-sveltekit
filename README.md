@@ -2,9 +2,14 @@
 
 This is a [Tauri v2](https://v2.tauri.app/) GitHub template, which uses [SvelteKit](https://kit.svelte.dev/) for its UI. The SvelteKit config is the same as in [template-sveltekit-example](https://github.com/maiertech/template-sveltekit-example), i.e., SvelteKit is configured to use [JSDoc annotations](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html) for TypeScript support.
 
+## Resources
+
+- Read [The missing guide to understanding adapter-static in SvelteKit](https://khromov.se/the-missing-guide-to-understanding-adapter-static-in-sveltekit/) to fully understand the constraints of SvelteKit's adapter-static.
+- Familiarize yourself with the [Tauri CLI](https://v2.tauri.app/references/cli/).
+
 ## Adapting SvelteKit to Tauri
 
-This repository is a SvelteKit project with Tauri embedded into the `/src-tauri` folder. In combination with Tauri, SvelteKit's server-side features cannot be used. In a Tauri app, anything that SvelteKit would handle server-side, needs to be handled by Tauri's Rust backend. Therefore, this repository uses SvelteKit's [adapter-static](https://kit.svelte.dev/docs/adapter-static). If you are not familiar with adapter-static, read [The missing guide to understanding adapter-static in SvelteKit](https://khromov.se/the-missing-guide-to-understanding-adapter-static-in-sveltekit/).
+This repository is a SvelteKit project with Tauri embedded into the `/src-tauri` folder. In combination with Tauri, SvelteKit's server-side features cannot be used. In a Tauri app, anything that SvelteKit would handle server-side, needs to be handled by Tauri's Rust backend. Therefore, this repository uses SvelteKit's [adapter-static](https://kit.svelte.dev/docs/adapter-static).
 
 Adapter-static is normally used with these two page options set globally in your `/src/routes/+layout.js`:
 
@@ -27,3 +32,5 @@ To create the Tauri Rust project inside the SvelteKit project, I used the Tauri 
 - **What is the URL of your dev server?** `http://localhost:5173`
 - **What is your frontend dev command?** `pnpm dev`
 - **What is your frontend build command?** `pnpm build`
+
+At this point you can develop a desktop app for your OS.
