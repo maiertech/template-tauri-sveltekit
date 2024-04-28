@@ -4,7 +4,7 @@ This is a [Tauri v2](https://v2.tauri.app/) GitHub template, which uses [SvelteK
 
 ## Pitfalls
 
-This repository is a SvelteKit project with Tauri embedded into the `/src-tauri` folder. In combination with Tauri, SvelteKit's server-side features cannot be used. In a Tauri app, anything that SvelteKit would handle server-side, needs to be handled by Tauri's Rust backend. Therefore, this repository uses SvelteKit's [adapter-static](https://kit.svelte.dev/docs/adapter-static), which is normally used with these two page options (in `/src/routes/+layout.js`):
+This repository is a SvelteKit project with Tauri embedded into the `src-tauri` folder. In combination with Tauri, SvelteKit's server-side features cannot be used. In a Tauri app, anything that SvelteKit would handle server-side, needs to be handled by Tauri's Rust backend. Therefore, this repository uses SvelteKit's [adapter-static](https://kit.svelte.dev/docs/adapter-static), which is normally used with these two page options (in `src/routes/+layout.js`):
 
 | Option             | Description                                 |
 | :----------------- | :------------------------------------------ |
@@ -17,7 +17,9 @@ Read [The missing guide to understanding adapter-static in SvelteKit](https://kh
 
 ## Using this template
 
-With this template you can develop desktop apps for the OS on which you run it. Familiarize yourself with the [Tauri CLI](https://v2.tauri.app/references/cli/). If you want to add support for iOS or Android, follow the instructions below.
+With this template you can develop desktop apps for the OS on which you run it. Familiarize yourself with the [Tauri CLI](https://v2.tauri.app/references/cli/). If you want to add support for iOS or Android, follow the instructions below. Be sure to use the v2 documentation and to append `@next` when you import Tauri NPM packes, e.g., `pnpm i -D @tauri-apps/api@next`.
+
+Commands are defined in `src-tauri/src/lib.rs`.
 
 ## Adding support for iOS
 
@@ -34,11 +36,11 @@ Follow the instructions in [template-sveltekit-example](https://github.com/maier
 
 ### Updating Tauri
 
-Anything Tauri is contained in `/src-tauri`. I use the Tauri CLI with `pnpm` to generate this folder. This requires `@tauri-apps/cli@next` to be installed. I ran `pnpm tauri init` with the following customizations:
+Anything Tauri is contained in `src-tauri`. I use the Tauri CLI with `pnpm` to generate this folder. This requires `@tauri-apps/cli@next` to be installed. I ran `pnpm tauri init` with the following customizations:
 
 - **What is your app name?** template-tauri-sveltekit
 - **What should the window title be?** template-tauri-sveltekit
-- **Where are your web assets located, relative to `/src-tauri/tauri.conf.json`?** `../build`, which is the default build directory for adapter-static.
+- **Where are your web assets located, relative to `src-tauri/tauri.conf.json`?** `../build`, which is the default build directory for adapter-static.
 - **What is the URL of your dev server?** `http://localhost:5173`
 - **What is your frontend dev command?** `pnpm dev`
 - **What is your frontend build command?** `pnpm build`
