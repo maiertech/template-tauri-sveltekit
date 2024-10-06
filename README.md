@@ -1,6 +1,20 @@
 # template-tauri-sveltekit
 
-This is a [Tauri v2](https://v2.tauri.app/) GitHub template, which uses [SvelteKit](https://kit.svelte.dev/) for its UI. The SvelteKit config in this template is the same as in [template-sveltekit-example](https://github.com/maiertech/template-sveltekit-example). It uses [JSDoc annotations](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html) for TypeScript support.
+This is a [Tauri v2](https://v2.tauri.app/) GitHub template, which uses [SvelteKit](https://kit.svelte.dev/) as its frontend.
+
+## Updating dependencies
+
+Run
+
+```bash
+pnpm create tauri-app .
+```
+
+from the project root to update dependencies.
+
+### SvelteKit
+
+The bootstrapped SvelteKit app comes without ESLint and Prettier. To add them, run
 
 ## Pitfalls
 
