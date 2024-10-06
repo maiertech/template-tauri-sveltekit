@@ -16,6 +16,10 @@ from the project root to update dependencies.
 
 The bootstrapped SvelteKit app comes without ESLint and Prettier. To add them, run
 
+```bash
+pnpm create sveltekit@latest .
+```
+
 ## Pitfalls
 
 This repository is a SvelteKit project with Tauri embedded into the `src-tauri` folder. In combination with Tauri, SvelteKit's server-side features cannot be used. In a Tauri app, anything that SvelteKit would handle server-side, needs to be handled by Tauri's Rust backend. Therefore, this repository uses SvelteKit's [adapter-static](https://kit.svelte.dev/docs/adapter-static), which is normally used with these two page options (in `src/routes/+layout.js`):
