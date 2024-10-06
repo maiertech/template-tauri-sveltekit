@@ -34,6 +34,8 @@ Tauri generates a SvelteKit app with [adapter-static](https://kit.svelte.dev/doc
 In combination with Tauri, you cannot use SvelteKit's server-side features. In a Tauri app, anything
 that SvelteKit would handle server-side, should be handled by Tauri's Rust backend.
 
+The adapter-static generates the `index.html` file that Tauri launches inside the webview.
+
 Normally, you use adapter-static with these two settings in `/src/routes/+layout.ts`:
 
 - `prerender = true`: Generate an HTML page for each route. You can enter the application through
@@ -41,12 +43,13 @@ Normally, you use adapter-static with these two settings in `/src/routes/+layout
 - `ssr = true`: Server-side render all pages at build time. This means that the HTML pages are
   rendered at build time. Otherwise they would be empty and rendered client-side.
 
-In combination with Tauri, you have to set `ssr = false` because Tauri requires acccess to `window`,
-which is not availalbe during SSR. You could set `ssr = true` but then you would have to use
-client-side checks before using Tauri's API.
+In combination with Tauri, you should set `ssr = false` because Tauri requires acccess to `window`,
+which is not availalbe during SSR. You can set `ssr = true` but then you would have to use
+client-side checks before using Tauri's API. And you have to make sure that all dependecies are also
+server-side renderable.
 
-To create a true SPA app, we would also need to set `prerender = false`. Then we need to set a
-fallback page.
+You can also create a true SPA app by setting `prerender = false` in combination with `ssr = false`.
+But then you need to configure a fallback page `index.html` in for the static-adapter.
 
 # References
 
